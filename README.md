@@ -5,25 +5,25 @@ A collection of agent skills for working with Docusaurus projects and technical 
 ## Installation
 
 ```bash
-npx skills add mcclowes/claude-docusaurus-skills
+npx skills add mcclowes/skills-docusaurus
 ```
 
 Install specific skills only:
 
 ```bash
-npx skills add mcclowes/claude-docusaurus-skills --skill docusaurus-config
+npx skills add mcclowes/skills-docusaurus --skill docusaurus-config
 ```
 
 Install globally (available across all projects):
 
 ```bash
-npx skills add mcclowes/claude-docusaurus-skills -g
+npx skills add mcclowes/skills-docusaurus -g
 ```
 
 Preview available skills before installing:
 
 ```bash
-npx skills add mcclowes/claude-docusaurus-skills --list
+npx skills add mcclowes/skills-docusaurus --list
 ```
 
 ## Available skills
@@ -42,14 +42,14 @@ npx skills add mcclowes/claude-docusaurus-skills --list
 ### As a Claude Code plugin
 
 ```bash
-claude mcp add-json docusaurus-skills '{"type":"stdio","command":"npx","args":["-y","claude-skills-cli","serve","https://raw.githubusercontent.com/mcclowes/claude-docusaurus-skills/main/.claude-plugin/marketplace.json"]}'
+claude mcp add-json docusaurus-skills '{"type":"stdio","command":"npx","args":["-y","claude-skills-cli","serve","https://raw.githubusercontent.com/mcclowes/skills-docusaurus/main/.claude-plugin/marketplace.json"]}'
 ```
 
 ### With OpenSkills
 
 ```bash
 npm i -g openskills
-openskills install mcclowes/claude-docusaurus-skills
+openskills install mcclowes/skills-docusaurus
 ```
 
 ### Manual

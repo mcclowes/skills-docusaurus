@@ -2,7 +2,7 @@
   "name": "docusaurus-skills",
   "owner": {
     "name": "mcclowes",
-    "email": "mcclowes@gmail.com"
+    "email": "contact@mcclowes.com"
   },
   "metadata": {
     "description": "Skills for working with Docusaurus documentation sites",
@@ -17,7 +17,7 @@
       "skills": [
         "./skills/docusaurus-config",
         "./skills/docusaurus-documentation",
-        "./skills/docusaurus-migration",
+        "./skills/docusaurus-v2-to-v3-migration",
         "./skills/docusaurus-plugins",
         "./skills/docusaurus-themes",
         "./skills/google-style-guide"
