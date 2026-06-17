@@ -1,8 +1,9 @@
 {
   "name": "mcclowes/docusaurus-v2-to-v3-migration",
-  "description": "Use when migrating Docusaurus projects from v2 to v3. Triggers on tasks involving MDX v1 to v3 migration, Docusaurus dependency updates, React 18 compatibility, or v2/v3 breaking changes.",
+  "description": "Use when migrating Docusaurus projects from v2 to v3 — upgrade @docusaurus/React/MDX/prism dependencies, rewrite MDX v1 syntax to v3 (escape bare { and <, fix autolinks), swap @tsconfig/docusaurus for @docusaurus/tsconfig, update Prism imports, and resolve React 18 breaking changes. Triggers on tasks involving MDX v1 to v3 migration, Docusaurus dependency updates, React 18 compatibility, or v2/v3 breaking changes.",
   "skills": [
     "."
   ],
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "license": "MIT"
 }

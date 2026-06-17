@@ -93,7 +93,9 @@ See [this blog post](https://scottspence.com/posts/how-to-make-claude-code-skill
 
 ## License
 
-See [LICENCE](LICENCE) file for details.
+This repository is MIT licensed — see [LICENCE](LICENCE).
+
+**Exception:** the `google-style-guide` skill adapts material from the [Google developer documentation style guide](https://developers.google.com/style) (© Google, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)) and is therefore distributed under CC BY 4.0, not MIT. See [skills/google-style-guide/README.md](skills/google-style-guide/README.md) for attribution details.
 
 ## Contributing
 

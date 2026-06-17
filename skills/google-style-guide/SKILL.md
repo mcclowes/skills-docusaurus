@@ -1,13 +1,16 @@
 ---
 name: google-style-guide
 description: Use when writing or reviewing technical documentation to follow Google's documentation style guide — enforce active voice and present tense, apply sentence case to headings, fix list and procedure formatting, mark code/UI elements correctly, flag non-inclusive terminology, and remove time-specific phrasing. Triggers on tasks involving technical writing, doc review, style consistency, inclusive language, or formatting standards.
-license: MIT
+license: CC-BY-4.0
 metadata:
   author: mcclowes
   version: "1.0.0"
+  attribution: "Adapted from the Google developer documentation style guide (https://developers.google.com/style), licensed under CC BY 4.0. Modified and condensed into skill form."
 ---
 
 # Google Style Guide
+
+> **Attribution:** This skill adapts material from the [Google developer documentation style guide](https://developers.google.com/style), © Google, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The content here has been condensed and restructured into skill form. As a derivative work it is distributed under the same CC BY 4.0 license — not MIT.
 
 ## Quick Start
 

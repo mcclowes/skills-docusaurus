@@ -1,8 +1,9 @@
 {
   "name": "mcclowes/google-style-guide",
-  "description": "Use when writing or reviewing technical documentation to follow Google's documentation style guide. Triggers on tasks involving technical writing, doc review, style consistency, inclusive language, or formatting standards.",
+  "description": "Use when writing or reviewing technical documentation to follow Google's documentation style guide — enforce active voice and present tense, apply sentence case to headings, fix list and procedure formatting, mark code/UI elements correctly, flag non-inclusive terminology, and remove time-specific phrasing. Triggers on tasks involving technical writing, doc review, style consistency, inclusive language, or formatting standards.",
   "skills": [
     "."
   ],
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "license": "CC-BY-4.0"
 }

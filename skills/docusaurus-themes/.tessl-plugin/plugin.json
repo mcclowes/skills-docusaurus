@@ -1,8 +1,9 @@
 {
   "name": "mcclowes/docusaurus-themes",
-  "description": "Use when swizzling Docusaurus theme components and editing theme elements. Triggers on tasks involving Docusaurus swizzling, theme component customization, navbar, footer, sidebar, or layout modifications.",
+  "description": "Use when swizzling Docusaurus theme components and editing theme elements — wrap or eject components from @docusaurus/theme-classic, override navbar/footer/sidebar/TOC/DocItem, place customised components under src/theme/, and choose safe (--wrap) vs full (--eject) swizzles. Triggers on tasks involving Docusaurus swizzling, theme component customization, navbar, footer, sidebar, or layout modifications.",
   "skills": [
     "."
   ],
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "license": "MIT"
 }
