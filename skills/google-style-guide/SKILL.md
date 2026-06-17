@@ -1,6 +1,6 @@
 ---
 name: google-style-guide
-description: Use when writing or reviewing technical documentation to follow Google's documentation style guide. Triggers on tasks involving technical writing, doc review, style consistency, inclusive language, or formatting standards.
+description: Use when writing or reviewing technical documentation to follow Google's documentation style guide — enforce active voice and present tense, apply sentence case to headings, fix list and procedure formatting, mark code/UI elements correctly, flag non-inclusive terminology, and remove time-specific phrasing. Triggers on tasks involving technical writing, doc review, style consistency, inclusive language, or formatting standards.
 license: MIT
 metadata:
   author: mcclowes
@@ -44,6 +44,25 @@ Use sentence case for headings. Make them descriptive and actionable.
 - Use **bold** for UI elements users interact with
 - Use descriptive placeholder names like `YOUR_PROJECT_ID`
 
+## Worked Example
+
+Several rules usually apply at once. Before/after for a typical doc sentence:
+
+> **Before:** "Once the Configuration File has been Edited by the user, the changes will be applied by the system and the build process will then be triggered."
+>
+> **After:** "After you edit the `config` file, the system applies your changes and triggers the build."
+
+What changed: passive → active voice; future → present tense; title case → sentence case; wordy clauses tightened; filename in code font.
+
+## Review Workflow
+
+When reviewing a doc, make one focused pass per concern rather than reading once and hoping to catch everything:
+
+1. **Voice & tense** — rewrite passive/future-tense sentences as active present tense.
+2. **Structure & headings** — sentence-case headings; numbered lists for steps, bullets otherwise.
+3. **Formatting** — code font for code/filenames/UI, bold for interactive elements, descriptive placeholders.
+4. **Inclusive & timeless language** — flag biased terms and time-specific phrasing (see references).
+
 ## Reference Files
 
 For detailed documentation, see:
@@ -56,19 +75,3 @@ For detailed documentation, see:
 - Official guide: https://developers.google.com/style
 - Third-party references: Merriam-Webster (spelling), Chicago Manual of Style
 - When in doubt: Choose clarity over strict rule adherence
-
-<!--
-PROGRESSIVE DISCLOSURE GUIDELINES:
-- Keep this file ~50 lines total (max ~150 lines)
-- Use 1-2 code blocks only (recommend 1)
-- Keep description <200 chars for Level 1 efficiency
-- Move detailed docs to references/ for Level 3 loading
-- This is Level 2 - quick reference ONLY, not a manual
-
-LLM WORKFLOW (when editing this file):
-1. Write/edit SKILL.md
-2. Format (if formatter available)
-3. Run: claude-skills-cli validate <path>
-4. If multi-line description warning: run claude-skills-cli doctor <path>
-5. Validate again to confirm
--->

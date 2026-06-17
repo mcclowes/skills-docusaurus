@@ -1,6 +1,6 @@
 ---
 name: docusaurus-v2-to-v3-migration
-description: Use when migrating Docusaurus projects from v2 to v3. Triggers on tasks involving MDX v1 to v3 migration, Docusaurus dependency updates, React 18 compatibility, or v2/v3 breaking changes.
+description: Use when migrating Docusaurus projects from v2 to v3 — upgrade @docusaurus/React/MDX/prism dependencies, rewrite MDX v1 syntax to v3 (escape bare { and <, fix autolinks), swap @tsconfig/docusaurus for @docusaurus/tsconfig, update Prism imports, and resolve React 18 breaking changes. Triggers on tasks involving MDX v1 to v3 migration, Docusaurus dependency updates, React 18 compatibility, or v2/v3 breaking changes.
 license: MIT
 metadata:
   author: mcclowes
@@ -28,28 +28,15 @@ metadata:
 
 ## Migration Steps
 
-1. **Pre-check**: Run `npx docusaurus-mdx-checker` to identify MDX issues
+This migration edits dependencies and content across the project, so work on a clean tree and verify after the risky steps rather than at the end.
+
+0. **Back up**: Commit or branch first (`git switch -c migrate-v3`) so you can diff and roll back.
+1. **Pre-check**: Run `npx docusaurus-mdx-checker` to identify MDX issues and note the count.
 2. **Update deps**: Upgrade all @docusaurus packages, React, MDX, prism-react-renderer
-3. **Fix MDX**: Escape bare `{` `<` characters, convert GFM autolinks, use code fences
+3. **Fix MDX**: Escape bare `{` `<` characters, convert GFM autolinks, use code fences. Then re-run `npx docusaurus-mdx-checker` and confirm it reports zero issues before moving on.
 4. **Update config**: Replace `@tsconfig/docusaurus` with `@docusaurus/tsconfig`, update Prism imports
-5. **Test**: Run `npm start` then `npm run build`
+5. **Test**: Run `npm start`, then `npm run build`. If the build fails, read the error, fix it, and re-run until clean.
 
 ## Reference Files
 
 - [breaking-changes.md](references/breaking-changes.md) - Complete migration guide with examples
-
-<!--
-PROGRESSIVE DISCLOSURE GUIDELINES:
-- Keep this file ~50 lines total (max ~150 lines)
-- Use 1-2 code blocks only (recommend 1)
-- Keep description <200 chars for Level 1 efficiency
-- Move detailed docs to references/ for Level 3 loading
-- This is Level 2 - quick reference ONLY, not a manual
-
-LLM WORKFLOW (when editing this file):
-1. Write/edit SKILL.md
-2. Format (if formatter available)
-3. Run: claude-skills-cli validate <path>
-4. If multi-line description warning: run claude-skills-cli doctor <path>
-5. Validate again to confirm
--->

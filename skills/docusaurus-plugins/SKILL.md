@@ -1,6 +1,6 @@
 ---
 name: docusaurus-plugins
-description: Use when creating Docusaurus plugins (remark, rehype, theme, content, lifecycle) to extend markdown, modify HTML, or add custom functionality. Triggers on tasks involving custom remark/rehype plugins, content plugins, theme plugins, or Docusaurus lifecycle hooks.
+description: Use when creating Docusaurus plugins — write remark transformers for markdown AST, rehype transformers for HTML/HAST, lifecycle plugins that add routes/webpack config/global data via loadContent and contentLoaded, theme plugins and swizzled components, and content plugins for custom data sources. Triggers on tasks involving custom remark/rehype plugins, content plugins, theme plugins, or Docusaurus lifecycle hooks.
 license: MIT
 metadata:
   author: mcclowes
@@ -31,6 +31,18 @@ module.exports = function remarkPlugin(options = {}) {
 // remarkPlugins: [require('./plugins/my-plugin')]
 ```
 
+## Choosing a plugin type
+
+Start here — pick the type from what you need to change, then open the matching reference file:
+
+| You want to… | Use | Reference |
+|---|---|---|
+| Change markdown syntax/content before HTML | Remark | remark-plugins.md |
+| Change the generated HTML | Rehype | rehype-plugins.md |
+| Add routes, webpack config, or global build data | Lifecycle | lifecycle-plugins.md |
+| Override or wrap UI components | Theme | theme-plugins.md |
+| Load a custom content source (CMS, API, files) | Content | content-plugins.md |
+
 ## Core Principles
 
 - **5 Plugin Types**: Remark (markdown), Rehype (HTML), Lifecycle (routes/webpack), Theme (components), Content (custom data)
@@ -48,19 +60,3 @@ Detailed guides for each plugin type:
 - [references/theme-plugins.md](references/theme-plugins.md) - Themes and swizzling
 - [references/content-plugins.md](references/content-plugins.md) - Custom content types
 - [references/package-structure.md](references/package-structure.md) - Publishing and config
-
-<!--
-PROGRESSIVE DISCLOSURE GUIDELINES:
-- Keep this file ~50 lines total (max ~150 lines)
-- Use 1-2 code blocks only (recommend 1)
-- Keep description <200 chars for Level 1 efficiency
-- Move detailed docs to references/ for Level 3 loading
-- This is Level 2 - quick reference ONLY, not a manual
-
-LLM WORKFLOW (when editing this file):
-1. Write/edit SKILL.md
-2. Format (if formatter available)
-3. Run: claude-skills-cli validate <path>
-4. If multi-line description warning: run claude-skills-cli doctor <path>
-5. Validate again to confirm
--->

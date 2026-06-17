@@ -1,6 +1,6 @@
 ---
 name: docusaurus-config
-description: Use when working with docusaurus.config.js/ts files to validate or modify Docusaurus configuration. Triggers on tasks involving docusaurus.config.js, docusaurus.config.ts, site configuration, URL formats, presets, or theme config.
+description: Use when working with docusaurus.config.js/ts files — validate the config structure, set required fields (title/url/baseUrl), fix URL and baseUrl formats, add presets and plugins, configure navbar/footer/theme settings, and move unknown keys into customFields. Triggers on tasks involving docusaurus.config.js, docusaurus.config.ts, site configuration, URL formats, presets, or theme config.
 license: MIT
 metadata:
   author: mcclowes
@@ -44,7 +44,13 @@ export default config;
 
 **Before editing**: Read current config to preserve format (JS/TS, ESM/CommonJS)
 
-**After editing**: Verify required fields, URL formats, and restart dev server
+**After editing**: Verify required fields and URL formats, then validate the build:
+
+1. Run `npm run build` — Docusaurus validates the full config and fails loudly on bad fields.
+2. If it errors, read the message (it names the offending field), fix it, and re-run.
+3. Once the build passes, restart the dev server (`npm start`) to confirm runtime behaviour.
+
+A bad config breaks the whole site, so always confirm with a build before considering the change done.
 
 ## Reference Files
 
