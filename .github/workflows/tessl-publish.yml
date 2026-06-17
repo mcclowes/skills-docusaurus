@@ -1,0 +1,39 @@
+name: Publish skills to Tessl
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - ".github/workflows/tessl-publish.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        skill:
+          - docusaurus-config
+          - docusaurus-documentation
+          - docusaurus-v2-to-v3-migration
+          - docusaurus-plugins
+          - docusaurus-themes
+          - google-style-guide
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Tessl CLI
+        uses: tessl/setup-tessl@v1
+        with:
+          token: ${{ secrets.TESSL_TOKEN }}
+
+      - name: Lint skill
+        run: tessl skill lint ./skills/${{ matrix.skill }}
+
+      - name: Publish skill
+        run: tessl skill publish ./skills/${{ matrix.skill }} --workspace mcclowes --public --bump patch

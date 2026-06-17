@@ -1,0 +1,8 @@
+{
+  "name": "mcclowes/docusaurus-themes",
+  "description": "Use when swizzling Docusaurus theme components and editing theme elements. Triggers on tasks involving Docusaurus swizzling, theme component customization, navbar, footer, sidebar, or layout modifications.",
+  "skills": [
+    "."
+  ],
+  "version": "0.1.0"
+}

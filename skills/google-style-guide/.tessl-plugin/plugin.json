@@ -1,0 +1,8 @@
+{
+  "name": "mcclowes/google-style-guide",
+  "description": "Use when writing or reviewing technical documentation to follow Google's documentation style guide. Triggers on tasks involving technical writing, doc review, style consistency, inclusive language, or formatting standards.",
+  "skills": [
+    "."
+  ],
+  "version": "0.1.0"
+}
