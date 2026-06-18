@@ -1,0 +1,66 @@
+{
+  "context": "The agent is asked to write REST API reference documentation in Markdown. The criteria check whether the output follows Google-style documentation conventions: active voice, present tense, sentence-case headings, correct list types, code formatting, placeholder style, reader-direct address, conditional ordering, list introductions, parallel structure, and timeless language.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Active voice",
+      "description": "All or nearly all descriptive sentences use active voice (the grammatical subject performs the action). No passive constructions such as 'is returned', 'should be sent', 'will be required'.",
+      "max_score": 9
+    },
+    {
+      "name": "Present tense",
+      "description": "Actions and states are described in present tense throughout. Does NOT use future tense constructions such as 'will return', 'will respond', 'will send'.",
+      "max_score": 9
+    },
+    {
+      "name": "Sentence-case headings",
+      "description": "Every section heading uses sentence case (only the first word and proper nouns are capitalised). No title-case headings such as 'Getting Started' or 'Authentication Requirements'.",
+      "max_score": 9
+    },
+    {
+      "name": "Code font for technical elements",
+      "description": "API endpoints, HTTP method names, header names, parameter names, field names, and curl commands are wrapped in backticks (inline code font). At least five distinct technical elements use code font.",
+      "max_score": 9
+    },
+    {
+      "name": "ALL_CAPS placeholders",
+      "description": "Placeholder values in code examples use descriptive ALL_CAPS names (e.g., YOUR_API_TOKEN, USER_ID). Does NOT use lowercase or hyphenated placeholders such as 'your-token' or '<token>'.",
+      "max_score": 9
+    },
+    {
+      "name": "Reader addressed as 'you'",
+      "description": "The prose addresses the reader directly using 'you' (explicit or implied). Does NOT use third-person references like 'the developer', 'the user', or 'they should'.",
+      "max_score": 8
+    },
+    {
+      "name": "Conditionals before instructions",
+      "description": "Any sentence that pairs a condition with an instruction puts the condition first ('If X, do Y'). Does NOT have instruction-first ordering ('Do Y if X') in at least one conditional sentence present in the doc.",
+      "max_score": 8
+    },
+    {
+      "name": "Numbered list for sequential steps",
+      "description": "The 'getting started' walkthrough (or equivalent step-by-step section) uses a numbered list, not a bulleted list.",
+      "max_score": 8
+    },
+    {
+      "name": "Bulleted list for non-sequential items",
+      "description": "Non-sequential items (parameters, response fields, error codes) are presented as bulleted lists, not numbered lists.",
+      "max_score": 8
+    },
+    {
+      "name": "Lists introduced with complete sentence",
+      "description": "Every list (bulleted or numbered) is introduced by a complete sentence that ends with a colon. No list starts after an incomplete phrase or a heading alone.",
+      "max_score": 9
+    },
+    {
+      "name": "Parallel construction in lists",
+      "description": "All items within each individual list follow the same grammatical structure (e.g., all noun phrases, or all imperative verbs). No list mixes passive voice, active verbs, and noun phrases in the same list.",
+      "max_score": 9
+    },
+    {
+      "name": "No time-specific references",
+      "description": "The document does NOT contain words or phrases such as 'currently', 'recently', 'soon', 'in the future', 'at this time', or 'as of now' without an accompanying specific date.",
+      "max_score": 5
+    }
+  ]
+}

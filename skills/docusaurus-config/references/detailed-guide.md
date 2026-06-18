@@ -171,6 +171,8 @@ customFields: {
 }
 ```
 
+When fixing a broken config, scan **every** root-level key and relocate **all** non-standard ones into `customFields` in a single pass. Moving only some of them (e.g. `supportEmail` but not `analyticsId`) leaves the remaining keys as validation errors and the build still fails. Treat it as an exhaustive sweep, not a spot fix.
+
 Access in components:
 ```typescript
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "alice-chen",
+    "name": "Alice Chen",
+    "role": "Engineering Manager",
+    "department": "Engineering",
+    "bio": "Alice leads the platform team and has been with the company since 2019. She holds a degree in Computer Science from MIT."
+  },
+  {
+    "id": "bob-kim",
+    "name": "Bob Kim",
+    "role": "Senior Frontend Engineer",
+    "department": "Engineering",
+    "bio": "Bob specializes in React performance and accessibility. He contributes to several open source projects in his spare time."
+  },
+  {
+    "id": "carla-santos",
+    "name": "Carla Santos",
+    "role": "Product Designer",
+    "department": "Design",
+    "bio": "Carla brings 8 years of UX experience across fintech and healthcare. She advocates for inclusive design patterns."
+  },
+  {
+    "id": "david-okafor",
+    "name": "David Okafor",
+    "role": "Backend Engineer",
+    "department": "Engineering",
+    "bio": "David focuses on distributed systems and reliability. He joined the company after a stint at a major cloud provider."
+  },
+  {
+    "id": "elena-morse",
+    "name": "Elena Morse",
+    "role": "Developer Advocate",
+    "department": "Marketing",
+    "bio": "Elena runs the developer community program and produces technical content to help engineers get the most from the platform."
+  }
+]

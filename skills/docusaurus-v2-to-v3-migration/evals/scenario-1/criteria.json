@@ -1,0 +1,66 @@
+{
+  "context": "The agent is given a Docusaurus v2 project scaffold and asked to migrate its configuration files to be compatible with Docusaurus v3. The grader checks that the updated package.json, tsconfig.json, and docusaurus.config.js reflect the correct v3 package versions, TypeScript config package, engines field, and Prism import style.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "@docusaurus/core version",
+      "description": "inputs/package.json specifies @docusaurus/core at ^3.0.0 (or a higher ^3.x range)",
+      "max_score": 10
+    },
+    {
+      "name": "@docusaurus/preset-classic version",
+      "description": "inputs/package.json specifies @docusaurus/preset-classic at ^3.0.0 (or higher ^3.x)",
+      "max_score": 10
+    },
+    {
+      "name": "@mdx-js/react version",
+      "description": "inputs/package.json specifies @mdx-js/react at ^3.0.0 (or higher ^3.x)",
+      "max_score": 8
+    },
+    {
+      "name": "prism-react-renderer version",
+      "description": "inputs/package.json specifies prism-react-renderer at ^2.1.0 (or higher ^2.x)",
+      "max_score": 8
+    },
+    {
+      "name": "react version",
+      "description": "inputs/package.json specifies react at ^18.2.0 (or higher ^18.x)",
+      "max_score": 8
+    },
+    {
+      "name": "react-dom version",
+      "description": "inputs/package.json specifies react-dom at ^18.2.0 (or higher ^18.x)",
+      "max_score": 7
+    },
+    {
+      "name": "TypeScript version",
+      "description": "inputs/package.json specifies typescript at ~5.2.2 (or higher ~5.x) in devDependencies",
+      "max_score": 7
+    },
+    {
+      "name": "engines field added",
+      "description": "inputs/package.json contains an \"engines\" field with \"node\": \">=18.0\" (or a stricter lower bound like >=18.x)",
+      "max_score": 8
+    },
+    {
+      "name": "tsconfig extends updated",
+      "description": "inputs/tsconfig.json \"extends\" field is \"@docusaurus/tsconfig\" (NOT \"@tsconfig/docusaurus\")",
+      "max_score": 10
+    },
+    {
+      "name": "Prism themes destructuring import",
+      "description": "inputs/docusaurus.config.js uses `const {themes} = require('prism-react-renderer')` instead of the old `require('prism-react-renderer/themes/...')` path-based imports",
+      "max_score": 10
+    },
+    {
+      "name": "additionalLanguages configured",
+      "description": "inputs/docusaurus.config.js includes an additionalLanguages array in the prism config block (e.g. containing 'bash', 'diff', or 'json')",
+      "max_score": 7
+    },
+    {
+      "name": "Old tsconfig package removed",
+      "description": "inputs/package.json does NOT still list @tsconfig/docusaurus as a dependency or devDependency",
+      "max_score": 7
+    }
+  ]
+}

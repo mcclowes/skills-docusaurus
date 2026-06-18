@@ -36,9 +36,37 @@ export default config;
 ## Core Principles
 
 - **Required**: `title`, `url`, `baseUrl` are mandatory
-- **Custom fields**: Unknown fields must use `customFields` object
+- **Custom fields**: Move **every** non-standard root-level key into `customFields` — see below
 - **Validation**: `url` no trailing slash, `baseUrl` must be `/path/`
 - **Plugins/themes**: Use string or `[name, options]` array format
+
+## Custom fields: move every non-standard key
+
+Docusaurus only recognises a fixed set of root-level keys (`title`, `url`, `baseUrl`, `favicon`, `organizationName`, `projectName`, `onBrokenLinks`, `i18n`, `presets`, `plugins`, `themes`, `themeConfig`, `markdown`, `staticDirectories`, `headTags`, `scripts`, `stylesheets`, `clientModules`, `ssrTemplate`, `titleDelimiter`, `noIndex`, `tagline`, `trailingSlash`, `future`, `customFields`). **Any other key at the root is a validation error.**
+
+When fixing a config, audit **all** root-level keys and move **every** unrecognised one into `customFields` — not just the first or most obvious one. A partial fix (moving one custom key but leaving another) still fails the build.
+
+```js
+// ❌ Before — analyticsId AND supportEmail are both invalid at root
+const config = {
+  title: 'My Site',
+  url: 'https://example.com',
+  baseUrl: '/',
+  analyticsId: 'UA-000000-2',      // not a Docusaurus key
+  supportEmail: 'support@x.io',    // not a Docusaurus key
+};
+
+// ✅ After — BOTH moved together into customFields
+const config = {
+  title: 'My Site',
+  url: 'https://example.com',
+  baseUrl: '/',
+  customFields: {
+    analyticsId: 'UA-000000-2',
+    supportEmail: 'support@x.io',
+  },
+};
+```
 
 ## Common Tasks
 

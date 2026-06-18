@@ -1,0 +1,66 @@
+{
+  "context": "Tests whether the agent produces a correctly structured, publishable Docusaurus rehype plugin. The plugin must use hastscript for HAST node creation, traverse element nodes by tagName, handle external links with security attributes, merge class arrays rather than overwriting them, and ship with proper TypeScript definitions and a well-formed package.json.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "hastscript import",
+      "description": "index.js imports the `h` function from `hastscript` (e.g. `const { h } = require('hastscript')` or `import { h } from 'hastscript'`)",
+      "max_score": 10
+    },
+    {
+      "name": "h() used for wrapper node",
+      "description": "index.js uses `h(...)` from hastscript to construct the wrapper div node rather than manually building a plain object literal with `type`, `tagName`, and `children` fields",
+      "max_score": 10
+    },
+    {
+      "name": "element traversal",
+      "description": "index.js calls `visit(tree, 'element', ...)` (or equivalent) to traverse HAST element nodes — not raw text or generic node traversal",
+      "max_score": 8
+    },
+    {
+      "name": "tagName-based dispatch",
+      "description": "index.js checks `node.tagName` to distinguish between `pre`/`code`, `img`, and `a` element types",
+      "max_score": 8
+    },
+    {
+      "name": "rel noopener noreferrer",
+      "description": "index.js sets `node.properties.rel` to `'noopener noreferrer'` (or equivalent array/string) on external anchor elements",
+      "max_score": 8
+    },
+    {
+      "name": "target _blank",
+      "description": "index.js sets `node.properties.target` to `'_blank'` on external anchor elements",
+      "max_score": 8
+    },
+    {
+      "name": "className array merge",
+      "description": "index.js merges into the existing className array (e.g. spreads `...(node.properties.className || [])`) rather than overwriting it with a new array or string",
+      "max_score": 8
+    },
+    {
+      "name": "TypeScript definitions file",
+      "description": "index.d.ts exists and declares a plugin options interface plus exports the plugin typed as a `unified` Plugin (e.g. `Plugin<[PluginOptions?], Root>`) using types from `unified` and `hast`",
+      "max_score": 10
+    },
+    {
+      "name": "unist-util-visit dependency",
+      "description": "package.json lists `unist-util-visit` under `dependencies` (not devDependencies)",
+      "max_score": 6
+    },
+    {
+      "name": "hastscript dependency",
+      "description": "package.json lists `hastscript` under `dependencies` (not devDependencies)",
+      "max_score": 6
+    },
+    {
+      "name": "peerDependency on core",
+      "description": "package.json lists `@docusaurus/core` under `peerDependencies`",
+      "max_score": 8
+    },
+    {
+      "name": "files field present",
+      "description": "package.json contains a `files` array that limits published artifacts (e.g. includes `index.js` and `index.d.ts`)",
+      "max_score": 10
+    }
+  ]
+}

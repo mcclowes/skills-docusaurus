@@ -1,0 +1,46 @@
+{
+  "context": "Tests whether the agent correctly swizzles a Docusaurus Footer component using the wrap workflow: listing components first, choosing --wrap over --eject, placing the file in src/theme/Footer/, importing the original via @theme-original/Footer, adding custom content, and validating with npm run build.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Swizzle with --wrap",
+      "description": "The swizzled Footer file uses the wrap pattern: it imports the original Footer from '@theme-original/Footer' and renders it, rather than containing a full copy of the original Footer source (which would indicate --eject was used)",
+      "max_score": 15
+    },
+    {
+      "name": "Correct file location",
+      "description": "The customized footer component is placed under src/theme/Footer/ (i.e., the file path is src/theme/Footer/index.js or src/theme/Footer/index.tsx within the Docusaurus project)",
+      "max_score": 15
+    },
+    {
+      "name": "Import via @theme-original",
+      "description": "The wrapper file contains an import statement importing the original Footer from '@theme-original/Footer'",
+      "max_score": 15
+    },
+    {
+      "name": "Props passed through",
+      "description": "The wrapper renders the original <Footer> component and passes props through (e.g., <Footer {...props} /> or equivalent)",
+      "max_score": 10
+    },
+    {
+      "name": "Custom content added",
+      "description": "The wrapper component adds custom content (e.g., a <div>, <p>, or similar element) outside/below the original <Footer> render — not just a stub that renders the original unchanged",
+      "max_score": 15
+    },
+    {
+      "name": "Build succeeded",
+      "description": "The file build-log.txt exists in the workspace and contains text indicating the Docusaurus build succeeded (e.g., 'Success!' or 'Generated static files')",
+      "max_score": 15
+    },
+    {
+      "name": "Lowest-level component swizzled",
+      "description": "The agent swizzled Footer specifically (not a higher-level component such as Layout or DocPage) to add the banner below the footer",
+      "max_score": 10
+    },
+    {
+      "name": "No eject pattern",
+      "description": "The Footer wrapper file does NOT contain large blocks of original Docusaurus Footer implementation code (copyright links, social icons rendering, etc.) that would indicate a full eject was performed",
+      "max_score": 5
+    }
+  ]
+}

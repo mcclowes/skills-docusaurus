@@ -1,0 +1,66 @@
+{
+  "context": "The agent must review and rewrite a flawed database replication guide that contains deliberate style violations. Grading checks whether the revised document follows inclusive, timeless, active-voice documentation standards and whether the review notes reflect a structured, multi-pass workflow.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "No socially charged terms",
+      "description": "revised_doc.md does NOT contain any of: 'whitelist', 'blacklist', 'master', 'slave' (as standalone technical terms for replication roles or access control)",
+      "max_score": 10
+    },
+    {
+      "name": "Neutral replacements used",
+      "description": "revised_doc.md uses at least one of: 'allowlist', 'denylist', 'blocklist', 'primary', 'replica', 'secondary' as replacements for the charged terms",
+      "max_score": 8
+    },
+    {
+      "name": "No ableist terms",
+      "description": "revised_doc.md does NOT contain 'sanity-check', 'crazy', 'insane', 'blind to', or 'lame'",
+      "max_score": 8
+    },
+    {
+      "name": "No violent language",
+      "description": "revised_doc.md does NOT use 'kill', 'hang', 'abort', or 'hit' as process/system metaphors",
+      "max_score": 8
+    },
+    {
+      "name": "No gendered terms",
+      "description": "revised_doc.md does NOT contain 'man-hours', 'mankind', 'manpower', or gendered pronouns 'he', 'she', 'his', 'her' used as generic references",
+      "max_score": 8
+    },
+    {
+      "name": "Gender-neutral pronouns",
+      "description": "revised_doc.md uses 'they' or 'their' (or restructures to avoid pronouns) for generic references to users or developers",
+      "max_score": 8
+    },
+    {
+      "name": "No time-specific references",
+      "description": "revised_doc.md does NOT contain 'recently', 'soon', 'currently' (without a date anchor), or 'in the future'",
+      "max_score": 8
+    },
+    {
+      "name": "Active voice",
+      "description": "revised_doc.md predominantly uses active voice constructions (e.g., 'Configure the primary server' not 'The primary server should be configured')",
+      "max_score": 8
+    },
+    {
+      "name": "List formatting: capitalization",
+      "description": "All list items in revised_doc.md start with a capital letter",
+      "max_score": 8
+    },
+    {
+      "name": "List formatting: parallel structure",
+      "description": "Lists in revised_doc.md use parallel grammatical construction (e.g., all items are imperative verb phrases, or all are noun phrases — not mixed)",
+      "max_score": 8
+    },
+    {
+      "name": "Multi-pass review notes",
+      "description": "review_notes.md organizes notes into at least three distinct categories of concern (such as voice/tense, terminology/language, formatting)",
+      "max_score": 10
+    },
+    {
+      "name": "Present tense",
+      "description": "revised_doc.md uses present tense for describing system behavior (e.g., 'replicates', 'returns') rather than future tense ('will replicate', 'will return') where describing ongoing system actions",
+      "max_score": 8
+    }
+  ]
+}

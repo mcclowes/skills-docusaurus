@@ -1,0 +1,1 @@
+{ "description": "Lifecycle plugin with routes, HTML injection, and validation", "include": ["./inputs"] }

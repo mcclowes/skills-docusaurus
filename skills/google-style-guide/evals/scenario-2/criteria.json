@@ -1,0 +1,61 @@
+{
+  "context": "The agent wrote a getting started tutorial for the DataSync SDK targeting a global developer audience. The criteria evaluate whether the agent followed Google-style documentation conventions for dates, times, numbers, punctuation, placeholders, prose structure, and inclusive examples — without being told which specific rules to apply.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "International date format",
+      "description": "Any date appearing in the tutorial uses ISO 8601 format (YYYY-MM-DD) or the 'DD Month YYYY' format (e.g., '17 June 2026'). No dates in MM/DD/YYYY or M/D/YYYY format.",
+      "max_score": 10
+    },
+    {
+      "name": "Timezone specified",
+      "description": "The maintenance window time (or any other specific time mentioned) includes an explicit timezone designation (e.g., UTC, JST, CET).",
+      "max_score": 10
+    },
+    {
+      "name": "Serial comma in inline list",
+      "description": "Any inline comma-separated list of three or more items uses a serial (Oxford) comma before the final 'and' or 'or' (e.g., 'JSON, XML, and YAML').",
+      "max_score": 10
+    },
+    {
+      "name": "No trailing 'etc.'",
+      "description": "No list or inline enumeration ends with 'etc.' or 'etc'.",
+      "max_score": 8
+    },
+    {
+      "name": "En dash for version/number range",
+      "description": "The version range (or any numeric range) uses an en dash (–) rather than a hyphen (-) between the numbers (e.g., '2.0–3.5' not '2.0-3.5').",
+      "max_score": 10
+    },
+    {
+      "name": "Numbers zero–nine spelled out in prose",
+      "description": "Single-digit numbers (zero through nine) that appear in non-technical prose are spelled out as words rather than numerals (e.g., 'five steps' not '5 steps' in a prose sentence).",
+      "max_score": 8
+    },
+    {
+      "name": "ALL_CAPS descriptive placeholders",
+      "description": "Placeholder values in the code block use descriptive ALL_CAPS names (e.g., YOUR_API_KEY, YOUR_PROJECT_ID) rather than lowercase or generic placeholders like 'key' or 'id'.",
+      "max_score": 10
+    },
+    {
+      "name": "Numbered steps start with verb",
+      "description": "Each step in the numbered installation/setup procedure begins with an imperative verb (e.g., 'Install', 'Configure', 'Run', 'Set').",
+      "max_score": 8
+    },
+    {
+      "name": "Procedure introduced with sentence",
+      "description": "The numbered installation/setup list is preceded by an introductory sentence (ending in a colon or period) that describes what the reader will accomplish.",
+      "max_score": 8
+    },
+    {
+      "name": "Conditional step placed correctly",
+      "description": "Any conditional step in the procedure puts the condition before the action (e.g., 'If you use a proxy, configure...' not 'Configure a proxy if you use one').",
+      "max_score": 8
+    },
+    {
+      "name": "Diverse persona names",
+      "description": "Any named example persona or user does NOT use exclusively Western/English names — at least one name from a non-Western cultural background appears (e.g., a Japanese, Indian, Brazilian, or African name).",
+      "max_score": 10
+    }
+  ]
+}

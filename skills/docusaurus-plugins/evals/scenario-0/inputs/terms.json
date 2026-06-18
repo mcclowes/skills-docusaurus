@@ -1,0 +1,22 @@
+{
+  "mdx": {
+    "display": "MDX",
+    "tooltip": "Markdown for the component era — lets you use JSX inside Markdown files"
+  },
+  "ast": {
+    "display": "AST",
+    "tooltip": "Abstract Syntax Tree — a tree representation of the parsed source code or markup"
+  },
+  "remark": {
+    "display": "remark",
+    "tooltip": "A Markdown processor powered by plugins that transform the MDAST"
+  },
+  "docusaurus": {
+    "display": "Docusaurus",
+    "tooltip": "An open-source static site generator built by Meta, optimised for technical documentation"
+  },
+  "hast": {
+    "display": "HAST",
+    "tooltip": "Hypertext Abstract Syntax Tree — the HTML equivalent of MDAST used by rehype"
+  }
+}

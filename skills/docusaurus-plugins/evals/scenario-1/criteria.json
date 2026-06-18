@@ -1,0 +1,66 @@
+{
+  "context": "Tests whether the agent correctly implements a Docusaurus lifecycle plugin: plugin structure with a name property and lifecycle hooks, use of setGlobalData/addRoute/createData in contentLoaded, injectHtmlTags returning headTags, getClientModules pointing to a client module, onRouteUpdate exported from the client module, validateOptions using Joi from @docusaurus/utils-validation, and correct peerDependency declaration for @docusaurus/core.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Plugin name property",
+      "description": "The plugin's returned object has a `name` property (e.g. `name: 'docusaurus-plugin-team'` or similar string)",
+      "max_score": 8
+    },
+    {
+      "name": "loadContent reads file",
+      "description": "The plugin implements a `loadContent()` lifecycle hook that reads or fetches the team data file (uses fs.readFile, require, or similar file I/O)",
+      "max_score": 8
+    },
+    {
+      "name": "contentLoaded destructures actions",
+      "description": "The `contentLoaded({ content, actions })` hook destructures at least `setGlobalData`, `addRoute`, and `createData` from the `actions` parameter",
+      "max_score": 10
+    },
+    {
+      "name": "setGlobalData called",
+      "description": "The plugin calls `setGlobalData(...)` inside `contentLoaded` to expose team data globally",
+      "max_score": 8
+    },
+    {
+      "name": "addRoute called",
+      "description": "The plugin calls `addRoute(...)` at least once inside `contentLoaded` to register a team-related route",
+      "max_score": 8
+    },
+    {
+      "name": "createData called",
+      "description": "The plugin calls `createData(...)` inside `contentLoaded` and uses the returned path in an `addRoute` call",
+      "max_score": 8
+    },
+    {
+      "name": "injectHtmlTags hook present",
+      "description": "The plugin implements `injectHtmlTags()` and returns an object with a `headTags` array containing at least one tag (e.g. a preconnect `link` tag)",
+      "max_score": 10
+    },
+    {
+      "name": "getClientModules returns path",
+      "description": "The plugin implements `getClientModules()` and returns an array containing a path to `clientModule.js` (using `path.resolve` or equivalent)",
+      "max_score": 8
+    },
+    {
+      "name": "onRouteUpdate exported",
+      "description": "`clientModule.js` exports a function named `onRouteUpdate` (e.g. `export function onRouteUpdate(...)` or `exports.onRouteUpdate = ...`)",
+      "max_score": 10
+    },
+    {
+      "name": "validateOptions uses Joi",
+      "description": "The plugin exports a `validateOptions` function that imports `Joi` from `@docusaurus/utils-validation` and uses `Joi.object(...)` to define a schema",
+      "max_score": 10
+    },
+    {
+      "name": "peerDependency for core",
+      "description": "`package.json` lists `@docusaurus/core` under `peerDependencies`, NOT under `dependencies`",
+      "max_score": 10
+    },
+    {
+      "name": "No @docusaurus/core in dependencies",
+      "description": "`package.json` does NOT list `@docusaurus/core` under the `dependencies` field",
+      "max_score": 2
+    }
+  ]
+}

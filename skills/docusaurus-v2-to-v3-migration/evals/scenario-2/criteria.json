@@ -1,0 +1,71 @@
+{
+  "context": "Tests whether the agent produces a Docusaurus v2→v3 migration plan that follows the skill's prescribed workflow: branching first, using the MDX checker both before and after fixes, verifying incrementally after risky steps, and correctly addressing React/component-level changes including React import removal and typeof-window replacement with useEffect.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Branch first",
+      "description": "Plan includes a step to create a new git branch before making any changes, using `git switch -c migrate-v3` or equivalent",
+      "max_score": 10
+    },
+    {
+      "name": "MDX checker pre-check",
+      "description": "Plan instructs running `npx docusaurus-mdx-checker` before starting MDX fixes to identify and count issues",
+      "max_score": 10
+    },
+    {
+      "name": "MDX checker post-check",
+      "description": "Plan instructs re-running `npx docusaurus-mdx-checker` after MDX fixes and confirms it must report zero issues before proceeding",
+      "max_score": 10
+    },
+    {
+      "name": "Intermediate verification",
+      "description": "Plan includes running `npm start` and/or `npm run build` after dependency update AND after config/component changes — not only as a single final step at the end",
+      "max_score": 10
+    },
+    {
+      "name": "Remove React imports",
+      "description": "Plan includes removing `import React from 'react'` statements from JSX/TSX files (referencing Banner.jsx or similar components)",
+      "max_score": 8
+    },
+    {
+      "name": "Replace typeof window",
+      "description": "Plan includes replacing `typeof window` conditional rendering in render functions with `useEffect` for client-only code",
+      "max_score": 8
+    },
+    {
+      "name": "Core package versions",
+      "description": "Plan specifies upgrading `@docusaurus/core` and `@docusaurus/preset-classic` to `^3.0.0`",
+      "max_score": 8
+    },
+    {
+      "name": "React and react-dom versions",
+      "description": "Plan specifies upgrading `react` and `react-dom` to `^18.2.0` (or >=18)",
+      "max_score": 6
+    },
+    {
+      "name": "mdx-js/react version",
+      "description": "Plan specifies upgrading `@mdx-js/react` to `^3.0.0`",
+      "max_score": 6
+    },
+    {
+      "name": "prism-react-renderer version",
+      "description": "Plan specifies upgrading `prism-react-renderer` to `^2.1.0` (or >=2)",
+      "max_score": 6
+    },
+    {
+      "name": "tsconfig package swap",
+      "description": "Plan instructs replacing `@tsconfig/docusaurus` with `@docusaurus/tsconfig` in the tsconfig.json `extends` field",
+      "max_score": 6
+    },
+    {
+      "name": "Prism theme import update",
+      "description": "Plan instructs updating Prism theme imports from `require('prism-react-renderer/themes/...')` to `const {themes} = require('prism-react-renderer'); themes.github` style",
+      "max_score": 6
+    },
+    {
+      "name": "Ordered steps",
+      "description": "Plan presents steps in the order: (1) backup/branch, (2) pre-check MDX issues, (3) update dependencies, (4) fix MDX content + re-check, (5) update config, (6) test/verify",
+      "max_score": 6
+    }
+  ]
+}

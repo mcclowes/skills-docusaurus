@@ -1,0 +1,56 @@
+{
+  "context": "Tests whether the agent writes a correct Docusaurus remark plugin following the skill's conventions: proper plugin function signature, unist-util-visit for AST traversal, jsx node type for component injection, init-time data caching, beforeDefaultRemarkPlugins registration, and correct package.json configuration.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Plugin function signature",
+      "description": "plugin/index.js exports a function (the plugin factory) that returns another function — the transformer — matching the pattern: module.exports = function(...) { return function transformer(ast, vfile) { ... } }",
+      "max_score": 10
+    },
+    {
+      "name": "Async transformer",
+      "description": "The inner transformer function is declared as async (async function transformer or async (ast, vfile) =>)",
+      "max_score": 8
+    },
+    {
+      "name": "unist-util-visit usage",
+      "description": "plugin/index.js requires or imports unist-util-visit and calls visit() to traverse the AST — does NOT use manual tree walking or a different traversal library",
+      "max_score": 12
+    },
+    {
+      "name": "jsx node type",
+      "description": "The plugin creates a node with type: 'jsx' (not type: 'html', 'paragraph', or any other type) when injecting the GlossaryTerm component",
+      "max_score": 12
+    },
+    {
+      "name": "GlossaryTerm component in jsx value",
+      "description": "The jsx node's value string contains a <GlossaryTerm ... /> or <GlossaryTerm ...>...</GlossaryTerm> element referencing both the term key and the tooltip text",
+      "max_score": 8
+    },
+    {
+      "name": "Init-time data loading",
+      "description": "The terms.json file is read (fs.readFileSync or equivalent) OUTSIDE the transformer function body — i.e., at plugin initialisation time, not inside the function that runs per document",
+      "max_score": 12
+    },
+    {
+      "name": "unist-util-visit dependency",
+      "description": "plugin/package.json lists unist-util-visit in the dependencies field (not devDependencies)",
+      "max_score": 8
+    },
+    {
+      "name": "Docusaurus core peer dependency",
+      "description": "plugin/package.json lists @docusaurus/core in the peerDependencies field",
+      "max_score": 8
+    },
+    {
+      "name": "beforeDefaultRemarkPlugins registration",
+      "description": "docusaurus.config.js registers the plugin using beforeDefaultRemarkPlugins (not remarkPlugins)",
+      "max_score": 12
+    },
+    {
+      "name": "No extra traversal dependencies",
+      "description": "plugin/package.json does NOT list any AST traversal library other than unist-util-visit in dependencies (e.g. no mdast-util-*, unist-util-map, etc.)",
+      "max_score": 10
+    }
+  ]
+}
